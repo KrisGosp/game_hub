@@ -4,6 +4,7 @@ import apiClient from "../services/api-client";
 type Game = {
   id: number;
   name: string;
+  background_image: string;
 };
 
 type FetchGamesRes = {
