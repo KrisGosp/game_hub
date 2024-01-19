@@ -5,14 +5,7 @@ const GameCardSkeleton = () => {
   return (
     <GameCardContainer>
       <Card>
-        <Skeleton
-          height={{
-            sm: "500px",
-            md: "420px",
-            lg: "280px",
-            xl: "400px",
-          }}
-        />
+        <Skeleton />
         <CardBody>
           <SkeletonText />
         </CardBody>
