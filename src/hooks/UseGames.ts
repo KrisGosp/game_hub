@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
+import useData from "./useData";
 
 export type Platform = {
   id: number;
@@ -17,26 +16,4 @@ export type Game = {
   metacritic: number;
 };
 
-type FetchGamesRes = {
-  count: number;
-  results: Game[];
-};
-
-export const useGames = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    setIsLoading(true);
-    apiClient
-      .get<FetchGamesRes>("/games")
-      .then((res) => setGames(res.data.results))
-      .catch((error) => setError(error.message))
-      .finally(() => setIsLoading(false));
-    return () => controller.abort();
-  }, []);
-  return { games, error, isLoading };
-};
+export const useGames = () => useData<Game>("/games");
