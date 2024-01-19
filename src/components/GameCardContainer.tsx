@@ -7,8 +7,8 @@ const GameCardContainer = ({ children }: { children: ReactNode }) => {
       width={{
         sm: "500px",
         md: "370px",
-        lg: "300px",
-        xl: "300px",
+        lg: "270px",
+        xl: "270px",
       }}
       height={{
         sm: "500px",
