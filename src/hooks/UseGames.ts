@@ -25,16 +25,18 @@ type FetchGamesRes = {
 export const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
 
+    setIsLoading(true);
     apiClient
       .get<FetchGamesRes>("/games")
       .then((res) => setGames(res.data.results))
-      .catch((error) => setError(error.message));
-
+      .catch((error) => setError(error.message))
+      .finally(() => setIsLoading(false));
     return () => controller.abort();
   }, []);
-  return { games, error };
+  return { games, error, isLoading };
 };
