@@ -14,6 +14,7 @@ export type Game = {
   parent_platforms: {
     platform: Platform;
   }[];
+  metacritic: number;
 };
 
 type FetchGamesRes = {
