@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { AxiosRequestConfig } from "axios";
 
-type FetchRes<T> = {
+export type FetchRes<T> = {
   count: number;
   results: T[];
 };
