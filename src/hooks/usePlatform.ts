@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { Platform } from "./UseGames";
 import platforms from "../data/platforms";
-import { FetchRes } from "./useData";
-import apiClient from "../services/api-client";
+import apiClient, { FetchRes } from "../services/api-client";
 
-const usePlatform = () => {
-  return useQuery({
+const usePlatform = () =>
+  useQuery({
     queryKey: ["platforms"],
     queryFn: () =>
       apiClient
@@ -14,6 +13,5 @@ const usePlatform = () => {
     staleTime: 24 * 60 * 60 * 1000, //24h
     initialData: { count: platforms.length, results: platforms },
   });
-};
 
 export default usePlatform;

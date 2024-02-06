@@ -6,7 +6,7 @@ import {
   List,
   ListItem,
 } from "@chakra-ui/react";
-import { useGenres, Genre } from "../hooks/useGenres";
+import useGenres, { Genre } from "../hooks/useGenres";
 import getImageUrl from "../services/image-url";
 import GenreListSkeleton from "./GenreListSkeleton";
 
