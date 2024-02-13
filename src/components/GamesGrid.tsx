@@ -9,7 +9,7 @@ import useGameQueryStore from "../store";
 const skeletons = [1, 2, 3, 4, 5, 6];
 
 const GamesGrid = () => {
-  const { gameQuery } = useGameQueryStore();
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
 
   const {
     data,

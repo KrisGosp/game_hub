@@ -15,7 +15,8 @@ const GenreList = () => {
   const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const { gameQuery, setGenreId } = useGameQueryStore();
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
+  const setGenreId = useGameQueryStore((s) => s.setGenreId);
 
   if (error) return null;
 
