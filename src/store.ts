@@ -15,7 +15,7 @@ type GameQueryStore = {
   setSearchText: (searchText: string) => void;
 };
 
-const useMyStore = create<GameQueryStore>((set) => ({
+const useGameQueryStore = create<GameQueryStore>((set) => ({
   gameQuery: {},
   setGenreId: (genreId) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, genreId } })),
@@ -26,4 +26,4 @@ const useMyStore = create<GameQueryStore>((set) => ({
   setSearchText: (searchText) => set(() => ({ gameQuery: { searchText } })),
 }));
 
-export default useMyStore;
+export default useGameQueryStore;
