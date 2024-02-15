@@ -5,8 +5,11 @@ interface Props {
 }
 
 const GameTrailer = ({ gameId }: Props) => {
-  const { data } = useTrailers(gameId);
+  const { data, error, isLoading } = useTrailers(gameId);
   const first = data?.results[0];
+
+  if (error) throw error;
+  if (isLoading) return null;
   console.log(data);
   return (
     <video src={first?.data[480]} poster={first?.preview} controls></video>

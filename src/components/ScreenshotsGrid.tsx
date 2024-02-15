@@ -6,7 +6,10 @@ interface Props {
 }
 
 const ScreenshotsGrid = ({ gameId }: Props) => {
-  const { data } = useScreenshots(gameId);
+  const { data, error, isLoading } = useScreenshots(gameId);
+
+  if (error) throw error;
+  if (isLoading) return null;
   return (
     <SimpleGrid
       columns={{
