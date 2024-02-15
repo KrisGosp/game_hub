@@ -1,11 +1,11 @@
-import useTrailer from "../hooks/useTrailer";
+import useTrailers from "../hooks/useTrailers";
 
 interface Props {
   gameId: number;
 }
 
 const GameTrailer = ({ gameId }: Props) => {
-  const { data } = useTrailer(gameId);
+  const { data } = useTrailers(gameId);
   const first = data?.results[0];
   console.log(data);
   return (
